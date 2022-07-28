@@ -8,19 +8,54 @@ from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, IsAdminUser
 
-class DoriList(generics.ListCreateAPIView):
-    queryset = Dori.objects.all()
-    serializer_class = DoriSerializer
-    filter_backends = (DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter)
-    filterset_fields = ['nomi']
-    search_fields = ['nomi']
-    ordering_fields = ['nomi']
-    permission_classes = [IsAdminUser]
 
-
-class DoriDetailView(generics.RetrieveUpdateDestroyAPIView):
+class DoriList(generics.ListAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
     permission_classes = [IsAdminUser]
+    
+class DoriDetail(generics.RetrieveAPIView):
+    queryset = Dori.objects.all()
+    serializer_class = DoriSerializer
+    permission_classes = [IsAdminUser]
+  
+
+class DoriCreate(generics.CreateAPIView):
+    queryset = Dori.objects.all()
+    serializer_class = DoriSerializer
+    permission_classes = [IsAdminUser]
 
 
+class DoriUpdate(generics.UpdateAPIView):
+    queryset = Dori.objects.all()
+    serializer_class = DoriSerializer
+    permission_classes = [IsAdminUser]
+    
+
+class DoriDelete(generics.DestroyAPIView):
+    queryset = Dori.objects.all()
+    serializer_class = DoriSerializer
+    permission_classes = [IsAdminUser]
+
+
+class YangiliklarList(generics.ListAPIView):
+    queryset = Yangiliklar.objects.all()  
+    serializer_class = YangiliklarSerializer
+    permission_classes = [IsAdminUser]
+
+class YangiliklarCreate(generics.CreateAPIView):
+    queryset = Yangiliklar.objects.all()  
+    serializer_class = YangiliklarSerializer
+    permission_classes = [IsAdminUser]
+
+
+class YangiliklarUpdate(generics.UpdateAPIView):
+    queryset = Yangiliklar.objects.all()  
+    serializer_class = YangiliklarSerializer
+    permission_classes = [IsAdminUser]
+
+
+class YangiliklarDelete(generics.DestroyAPIView):
+    queryset = Yangiliklar.objects.all()
+    serializer_class = YangiliklarSerializer
+    permission_classes = [IsAdminUser]
