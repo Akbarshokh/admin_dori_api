@@ -5,7 +5,7 @@ from .models import *
 class DoriSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dori
-        fields = ['id','nomi', 'rasmi', 'tarkibi', 'qollanilishi', 'foydalanish_tartibi', ]
+        fields = ['id', 'slug', 'nomi', 'rasmi', 'tarkibi', 'qollanilishi', 'foydalanish_tartibi', ]
         
 
 class YangiliklarSerializer(serializers.ModelSerializer):
