@@ -6,6 +6,7 @@ from django.forms import CharField
 from django.template.defaultfilters import slugify
 
 
+
 class Dori(models.Model):
     nomi = models.CharField(max_length=255)
     rasmi = models.ImageField(upload_to="images/", verbose_name="Dori Rasmlari", blank=True)
