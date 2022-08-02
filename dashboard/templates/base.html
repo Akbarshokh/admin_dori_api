@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{% static 'css/default-css.css'%}">
     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
     <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    {% block css %}
+    {% endblock css %}
     <!-- modernizr css -->
     <script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
 </head>
@@ -40,7 +42,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="static/images/icon/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="{% static 'images/icon/logo.png' %}" alt="logo"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -48,14 +50,54 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
-                                <ul class="collapse">
-                                    <li class="active"><a href="base.html">Dashboard</a></li>
-                                    <li><a href="mahsulotlar.html">Mahsulotlar</a></li>
-                                    
-                                </ul>
+                                <a href="{% url 'dashboard_url' %}" ><i class="ti-layout-sidebar-left"></i><span>boshqaruv paneli </span></a>
+                                <!-- <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>boshqaruv paneli </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="{% url 'dashboard_url' %}">Dashboard</a></li>
+                                        <li><a href="{% url 'mahsulotlar_url' %}">Mahsulotlar</a></li>
+                                        <li><a href="{% url 'yangliklar_url' %}">Yangiliklar</a></li>
+                                        <li><a href="{% url 'linklar_url' %}">Linklar</a></li>
+                                        <li><a href="{% url 'staff_url' %}">Xodimlar</a></li>
+                                        <li><a href="#">Kompaniya haqida</a></li>
+                                    </ul>
+                                </li> -->
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Yangliklar </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="{% url 'dashboard_url' %}">Yanglik qo`shish</a></li>
+                                        <li><a href="{% url 'mahsulotlar_url' %}">Yangliklar ro`yxati</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Linklar </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="index.html">Link qo`shsih</a></li>
+                                        <li><a href="index3-horizontalmenu.html">Linklar ro`yxati</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Mahsulotlar </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="{% url 'mahsulot_add_url'%}">Mahsulot qo`shish</a></li>
+                                        <li><a href="index.html">Mashulotlar ro`yxati</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Xodimlar </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="index.html">Xodim qo`shish</a></li>
+                                        <li><a href="index3-horizontalmenu.html">Xodimlar ro`yxati</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Kompaniy haqida </span></a>
+                                    <ul class="collapse">
+                                        <li><a href="index.html">Malumot qo`shish</a></li>
+                                        <li><a href="index3-horizontalmenu.html">Malumotlar ro`yxati</a></li>
+                                    </ul>
+                                </li>
                             </li>
-                            
                         </ul>
                     </nav>
                 </div>
@@ -99,7 +141,7 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="static/images/author/avatar.png" alt="avatar">
+                            <img class="avatar user-thumb" src="{% static 'images/author/avatar.png' %}" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Log Out</a>
@@ -153,6 +195,9 @@
     <!-- others plugins -->
     <script src="{%static 'js/plugins.js'%}"></script>
     <script src="{%static 'js/scripts.js'%}"></script>
+    
+    {% block js %}
+    {% endblock js %}
 </body>
 
 </html>
