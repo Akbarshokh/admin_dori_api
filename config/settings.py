@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'api',
+    'dashboard',
     
     'gsheets',
     'drf_yasg',
@@ -51,11 +52,11 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', 
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated', 
+    #     'rest_framework.authentication.BasicAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    # ]
     
 }
 
@@ -94,24 +95,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dori_api', 
-#         'USER': 'postgres', 
-#         'PASSWORD': 'postgres',
-#         'HOST': '127.0.0.1', 
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'dori_api', 
+        'USER': 'postgres', 
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
-DATABASES['default'] = dj_database_url.config(default='postgres://koyxjifhxdwjiq:39ce96770a5c906f521f745ff4460b2515a4802ff70d4e883515d64fd2aa8e99@ec2-44-195-162-77.compute-1.amazonaws.com:5432/de466lhjpfg00l')
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#     }
+# }
+# DATABASES['default'] = dj_database_url.config(default='postgres://koyxjifhxdwjiq:39ce96770a5c906f521f745ff4460b2515a4802ff70d4e883515d64fd2aa8e99@ec2-44-195-162-77.compute-1.amazonaws.com:5432/de466lhjpfg00l')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

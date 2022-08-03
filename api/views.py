@@ -1,5 +1,7 @@
+import django
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from rest_framework.response import Response
 from .models import *
 from .serializers import *
 from rest_framework import generics
@@ -7,7 +9,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, IsAdminUser
-
+from rest_framework.views import APIView
 
 class DoriList(generics.ListAPIView):
     queryset = Dori.objects.all()
@@ -59,3 +61,10 @@ class YangiliklarDelete(generics.DestroyAPIView):
     queryset = Yangiliklar.objects.all()
     serializer_class = YangiliklarSerializer
     permission_classes = [IsAdminUser]
+    
+
+class TwitterListView(APIView):
+    def get(self, request):
+        snippets = TwitterModel.objects.last()
+        serializer = TwitterSerializer(snippets)
+        return Response(serializer.data)

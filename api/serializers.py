@@ -12,3 +12,9 @@ class YangiliklarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Yangiliklar
         fields = ['rasmi', 'title', 'body',]
+        
+        
+class TwitterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TwitterModel
+        fields = ['name']

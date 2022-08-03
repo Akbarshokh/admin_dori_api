@@ -5,7 +5,7 @@ from django.db import models
 from django.forms import CharField
 from django.template.defaultfilters import slugify
 
-
+#linklar - email, pnone, links
 
 class Dori(models.Model):
     nomi = models.CharField(max_length=255)
@@ -45,3 +45,28 @@ class Yangiliklar(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+    
+    
+class EmaiModel(models.Model):
+    name = models.URLField(max_length=255)
+    
+    def __str__(self):
+        return self.name
+    
+class TelefonModel(models.Model):
+    name = models.URLField(max_length=255)
+    
+    def __str__(self):
+        return self.name
+    
+class TwitterModel(models.Model):
+    name = models.URLField(max_length=255)
+    
+    def __str__(self):
+        return self.name
+    
+class FacebookModel(models.Model):
+    name = models.URLField(max_length=255)
+    
+    def __str__(self):
+        return self.name
