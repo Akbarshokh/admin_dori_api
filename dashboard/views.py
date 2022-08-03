@@ -174,3 +174,4 @@ def staff(request):
         'staff':staffs
     }
     return render(request, 'staffs.html', context)
+
