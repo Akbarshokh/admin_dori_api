@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from api.models import *
 
 def dashboard(request):
@@ -80,7 +80,7 @@ def linklar(request):
     telegram = TelegramModel.objects.last()
     instagram = InstagramModel.objects.last()
     email = EmailModel.objects.last()
-    phone = TelegramModel.objects.last()
+    phone = TelefonModel.objects.last()
     twitter = TwitterModel.objects.last()
     facebook = FacebookModel.objects.last()
     context = {
@@ -94,12 +94,83 @@ def linklar(request):
 
     return render(request, 'link-list.html', context)
 
+def add_link(request):
+    return render(request, 'link-add.html')
+
+
+def add_email(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        EmailModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
+def add_phone(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        TelefonModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
+def add_twitter(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        TwitterModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
+def add_facebook(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        FacebookModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
+def add_telegram(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        TelegramModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+    
+def add_telegram(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        TelegramModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
+def add_instagram(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        InstagramModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
+
+
 def staff(request):
     staffs = Staff.objects.all()
     context = {
         'staff':staffs
     }
     return render(request, 'staffs.html', context)
-
-# def about_company(request):
-#     pass
