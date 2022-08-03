@@ -21,5 +21,8 @@ urlpatterns = [
     path('facebook/add/', add_facebook, name='add_facebook_url'),
     path('telegram/add/', add_telegram, name='add_telegram_url'),
     path('instagram/add/', add_instagram, name='add_instagram_url'),
-    path('staff/', staff, name='staff_url'),
+    
+    path('staff/', staff, name='staff_list'),
+    path('staff/add', staff_add, name='staff_add'),
+    
 ]

@@ -49,11 +49,12 @@ class Staff(models.Model):
     last_name = models.CharField(max_length=255)
     kasbi = models.CharField(max_length=255, default="Doktor")
     about = models.TextField()
+    telefon = models.CharField(max_length=255, blank=True, null=True)
+    telegram = models.URLField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
-    instagram = models.URLField(blank=True, null=True)
-    linkedin = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)    
     avatar = models.ImageField(upload_to = 'staff/')
 
     
