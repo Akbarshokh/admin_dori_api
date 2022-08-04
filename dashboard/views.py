@@ -76,6 +76,7 @@ def yangilik_add(request):
         )
     return render(request, 'news-add.html')
 
+
 def linklar(request):
     telegram = TelegramModel.objects.last()
     instagram = InstagramModel.objects.last()
@@ -173,4 +174,33 @@ def staff(request):
     context = {
         'staff':staffs
     }
-    return render(request, 'staffs.html', context)
+    return render(request, 'staff-list.html', context)
+
+def staff_add(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        kasbi = request.POST['kasbi']
+        about = request.POST['about']
+        telefon = request.POST['telefon'] 
+        telegram = request.POST['telegram'] 
+        email = request.POST['email']
+        twitter = request.POST['twitter']
+        facebook = request.POST['facebook']
+        instagram = request.POST['instagram']               
+        avatar = request.FILES['avatar']
+                
+        Staff.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            kasbi=kasbi,
+            about=about,
+            telefon=telefon,
+            telegram=telegram,
+            email=email,
+            twitter=twitter,
+            facebook=facebook,
+            instagram=instagram,            
+            avatar=avatar,
+        )
+    return render(request, 'staff-add.html')

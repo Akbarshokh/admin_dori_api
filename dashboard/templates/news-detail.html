@@ -1,19 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="col-lg-6 mt-5">
-    <div class="card">
-        {% for new in news %}
-        <div class="card-body">
-            <div class="media mb-5">
-                <img class="align-self-center img-fluid mr-4" src="{{new.rasmi.url}}" alt="image">
-                <div class="media-body">
-                    <h4 class="mb-3">{{new.title}}</h4> 
-                    <p>{{new.body}}</p>
-                </div>
-            </div>            
-        </div>
-        {% endfor %}
-    </div>
-</div>
+
 {% endblock content %}
