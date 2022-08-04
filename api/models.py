@@ -1,8 +1,3 @@
-from distutils.command.upload import upload
-from operator import truediv
-from pyexpat import model
-import re
-from tabnanny import verbose
 from django.db import models
 from django.forms import CharField
 from django.template.defaultfilters import slugify
@@ -52,6 +47,7 @@ class Yangiliklar(models.Model):
 class Staff(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    kasbi = models.CharField(max_length=255, default="Doktor")
     about = models.TextField()
     email = models.EmailField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
@@ -59,9 +55,11 @@ class Staff(models.Model):
     instagram = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
     avatar = models.ImageField(upload_to = 'staff/')
+
     
     def __str__(self):
         return self.first_name
+
 
 class Order(models.Model):
     first_name = models.CharField(max_length=255)
@@ -72,17 +70,20 @@ class Order(models.Model):
     def __str__(self):
         return self.first_name
 
+
 class Map(models.Model):
     map = CharField(max_length=255)
 
     def __str__(self):
         return self.map
+   
     
-class EmaiModel(models.Model):
+class EmailModel(models.Model):
     name = models.URLField()
     
     def __str__(self):
         return self.name
+    
     
 class TelefonModel(models.Model):
     name = models.CharField(max_length=255)
@@ -90,11 +91,13 @@ class TelefonModel(models.Model):
     def __str__(self):
         return self.name
     
+    
 class TwitterModel(models.Model):
     name = models.URLField()
     
     def __str__(self):
         return self.name
+    
     
 class FacebookModel(models.Model):
     name = models.URLField()
@@ -108,6 +111,7 @@ class TelegramModel(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class InstagramModel(models.Model):
     name = models.URLField()

@@ -12,7 +12,7 @@ urlpatterns = [
     path('yangliklar/add', yangilik_add, name='yangilik_add'),
     path('yangliklar/<int:pk>/', yanglik_detail, name='yanglik_detail'),
     
-    path('linklar/', linklar, name='linklar_url'),
+    path('linklar/', linklar, name='linklar_list'),
     
     path('staff/', staff, name='staff_url'),
 ]

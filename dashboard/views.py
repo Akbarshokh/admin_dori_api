@@ -55,9 +55,9 @@ def yangilik_list(request):
 
 
 def yanglik_detail(request, pk):
-    new = Yangiliklar.objects.get(pk=pk)
+    news = Yangiliklar.objects.get(pk=pk)
     context = {
-        'new':new
+        'news':news
     }
 
     return render(request, 'news-detail.html', context)
@@ -79,7 +79,7 @@ def yangilik_add(request):
 def linklar(request):
     telegram = TelegramModel.objects.last()
     instagram = InstagramModel.objects.last()
-    email = EmaiModel.objects.last()
+    email = EmailModel.objects.last()
     phone = TelegramModel.objects.last()
     twitter = TwitterModel.objects.last()
     facebook = FacebookModel.objects.last()
@@ -92,7 +92,7 @@ def linklar(request):
         'facebook':facebook
     }
 
-    return render(request, 'links.html', context)
+    return render(request, 'link-list.html', context)
 
 def staff(request):
     staffs = Staff.objects.all()

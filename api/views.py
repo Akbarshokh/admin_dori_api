@@ -68,6 +68,42 @@ class YangiliklarDelete(generics.DestroyAPIView):
     permission_classes = [IsAdminUser]
     
 
+class StaffList(generics.ListAPIView):
+    queryset = Staff.objects.all()
+    serializer_class = StaffSerializer
+    permission_classes = [IsAdminUser]
+    
+    
+class StaffDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Staff.objects.all()
+    serializer_class = StaffSerializer
+    permission_class = [IsAdminUser]
+
+
+class MapList(generics.ListAPIView):
+    queryset = Map.objects.all()
+    serializer_class = MapSerializer
+    permission_class = [IsAdminUser]
+
+
+class MapDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Map.objects.all()
+    serializer_class = MapSerializer
+    permission_class = [IsAdminUser]
+
+
+class EmailList(generics.ListAPIView):
+    queryset = EmailModel.objects.all()
+    serializer_class = EmailSerializer
+    permission_class = [IsAdminUser]
+
+
+class MapDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = EmailModel.objects.all()
+    serializer_class = EmailSerializer
+    permission_class = [IsAdminUser]
+
+
 class TwitterListView(APIView):
     def get(self, request):
         snippets = TwitterModel.objects.last()
