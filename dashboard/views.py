@@ -176,6 +176,14 @@ def staff(request):
     }
     return render(request, 'staff-list.html', context)
 
+def staff(request, pk):
+    staff = Staff.objects.get(pk=pk)
+    context = {
+        'staff':staff,
+    }
+
+    return render(request, 'staf-detail.html', context)
+
 def staff_add(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
