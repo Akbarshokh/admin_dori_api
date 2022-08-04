@@ -2,6 +2,64 @@
 {% load static %}
 
 {% block content %}
-
+<div class="row">
+    <!-- Progress Table start -->
+    <div class="col-12 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Mahsulotlar Ro'yxati</h4>
+                <div class="single-table">
+                    <div class="table-responsive">
+                        <table class="table table-hover progress-table text-center">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th scope="col">Telegram</th>
+                                    <th scope="col">instagram</th>
+                                    <th scope="col">email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Twitter</th>
+                                    <th scope="col">Facebook</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if telegram is not None %}
+                                    <th><a href="{{telegram}}">{{telegram}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if instagram is not None %}
+                                    <th><a href="{{instagram}}">{{instagram}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if email is not None %}
+                                    <th><a href="mailto:{{email}}">{{email}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if phone is not None %}
+                                    <th><a href="{{phone}}">{{phone}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if twitter is not None %}
+                                    <th><a href="{{twitter}}">{{twitter}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if facebook is not None %}
+                                    <th><a href="{{facebook}}">{{facebook}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Progress Table end -->
+</div>
 {% endblock content %}
 
