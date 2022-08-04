@@ -11,10 +11,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, IsAdminUser
 from rest_framework.views import APIView
 
+
 class DoriList(generics.ListAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
     permission_classes = [IsAdminUser]
+    
     
 class DoriDetail(generics.RetrieveAPIView):
     queryset = Dori.objects.all()
@@ -22,51 +24,17 @@ class DoriDetail(generics.RetrieveAPIView):
     permission_classes = [IsAdminUser]
   
 
-class DoriCreate(generics.CreateAPIView):
-    queryset = Dori.objects.all()
-    serializer_class = DoriSerializer
-    permission_classes = [IsAdminUser]
-
-
-class DoriUpdate(generics.UpdateAPIView):
-    queryset = Dori.objects.all()
-    serializer_class = DoriSerializer
-    permission_classes = [IsAdminUser]
-    
-
-class DoriDelete(generics.DestroyAPIView):
-    queryset = Dori.objects.all()
-    serializer_class = DoriSerializer
-    permission_classes = [IsAdminUser]
-
-
 class YangiliklarList(generics.ListAPIView):
     queryset = Yangiliklar.objects.all()  
     serializer_class = YangiliklarSerializer
     permission_classes = [IsAdminUser]
 
+
 class YangiliklarDetail(generics.RetrieveAPIView):
     queryset = Yangiliklar.objects.all()
     serializer_class = YangiliklarSerializer
     permission_classes = [IsAdminUser]
-
-class YangiliklarCreate(generics.CreateAPIView):
-    queryset = Yangiliklar.objects.all()  
-    serializer_class = YangiliklarSerializer
-    permission_classes = [IsAdminUser]
-
-
-class YangiliklarUpdate(generics.UpdateAPIView):
-    queryset = Yangiliklar.objects.all()  
-    serializer_class = YangiliklarSerializer
-    permission_classes = [IsAdminUser]
-
-
-class YangiliklarDelete(generics.DestroyAPIView):
-    queryset = Yangiliklar.objects.all()
-    serializer_class = YangiliklarSerializer
-    permission_classes = [IsAdminUser]
-    
+   
 
 class StaffList(generics.ListAPIView):
     queryset = Staff.objects.all()
@@ -74,38 +42,62 @@ class StaffList(generics.ListAPIView):
     permission_classes = [IsAdminUser]
     
     
-class StaffDetail(generics.RetrieveUpdateDestroyAPIView):
+class StaffDetail(generics.RetrieveAPIView):
     queryset = Staff.objects.all()
     serializer_class = StaffSerializer
     permission_class = [IsAdminUser]
 
 
-class MapList(generics.ListAPIView):
-    queryset = Map.objects.all()
-    serializer_class = MapSerializer
-    permission_class = [IsAdminUser]
+class OrderList(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAdminUser]
 
 
-class MapDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Map.objects.all()
-    serializer_class = MapSerializer
-    permission_class = [IsAdminUser]
+class FacebookListView(APIView):
+    def get(self, request):
+        snippets = FacebookModel.objects.last()
+        serializer = FacebookSerializer(snippets)
+        return Response(serializer.data)
 
 
-class EmailList(generics.ListAPIView):
-    queryset = EmailModel.objects.all()
-    serializer_class = EmailSerializer
-    permission_class = [IsAdminUser]
+class TelefonListView(APIView):
+    def get(self, request):
+        snippets = TelefonModel.objects.last()
+        serializer = TelefonSerializer(snippets)
+        return Response(serializer.data)
 
 
-class MapDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = EmailModel.objects.all()
-    serializer_class = EmailSerializer
-    permission_class = [IsAdminUser]
+class EmailListView(APIView):
+    def get(self, request):
+        snippets = EmailModel.objects.last()
+        serializer = EmailSerializer(snippets)
+        return Response(serializer.data)
+
+
+class MapListView(APIView):
+    def get(self, request):
+        snippets = Map.objects.last()
+        serializer = MapSerializer(snippets)
+        return Response(serializer.data)
 
 
 class TwitterListView(APIView):
     def get(self, request):
         snippets = TwitterModel.objects.last()
         serializer = TwitterSerializer(snippets)
+        return Response(serializer.data)
+
+
+class TelegramListView(APIView):
+    def get(self, request):
+        snippets = TelegramModel.objects.last()
+        serializer = TelegramSerializer(snippets)
+        return Response(serializer.data)
+    
+    
+class InstagramListView(APIView):
+    def get(self, request):
+        snippets = InstagramModel.objects.last()
+        serializer = InstagramSerializer(snippets)
         return Response(serializer.data)
