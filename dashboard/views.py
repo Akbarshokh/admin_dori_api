@@ -14,12 +14,12 @@ def dashboard(request):
 #     }
 #     return render(request, 'datatable.html', context)
 
-def mahsulotlar(request):
+def mahsulot_list(request):
     objects = Dori.objects.all()
     context = {
         'objects':objects
     }
-    return render(request, 'mahsulotlar.html', context)
+    return render(request, 'mahsulot-list.html', context)
 
 def mahsulot_add(request):
     if request.method == 'POST':
@@ -42,24 +42,39 @@ def mahsulot_detail(request, pk):
     context = {
         'object':object
     }
-    return render(request, 'mahsulot.html', context)
+    return render(request, 'mahsulot-detail.html', context)
 
-def yangliklar(request):
+
+def yangilik_list(request):
     news = Yangiliklar.objects.all()
     context = {
         'news':news
     }
 
-    return render(request, 'news.html', context)
+    return render(request, 'news-list.html', context)
 
-def yanglik(request, pk):
+
+def yanglik_detail(request, pk):
     new = Yangiliklar.objects.get(pk=pk)
     context = {
         'new':new
     }
 
-    return render(request, 'new.html', context)
+    return render(request, 'news-detail.html', context)
 
+
+def yangilik_add(request):
+    if request.method == 'POST':
+        rasmi = request.FILES['rasmi']
+        title = request.POST['title']
+        body = request.POST['body']
+        
+        Yangiliklar.objects.create(
+            rasmi=rasmi,
+            title = title,
+            body=body,
+        )
+    return render(request, 'news-add.html')
 
 def linklar(request):
     telegram = TelegramModel.objects.last()

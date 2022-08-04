@@ -45,6 +45,11 @@ class YangiliklarList(generics.ListAPIView):
     serializer_class = YangiliklarSerializer
     permission_classes = [IsAdminUser]
 
+class YangiliklarDetail(generics.RetrieveAPIView):
+    queryset = Yangiliklar.objects.all()
+    serializer_class = YangiliklarSerializer
+    permission_classes = [IsAdminUser]
+
 class YangiliklarCreate(generics.CreateAPIView):
     queryset = Yangiliklar.objects.all()  
     serializer_class = YangiliklarSerializer

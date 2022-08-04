@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <!-- Progress Table start -->
+    <div class="col-12 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Mahsulotlar Ro'yxati</h4>
+                <div class="single-table">
+                    <div class="table-responsive">
+                        <table class="table table-hover progress-table text-center">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Maxsulot nomi</th>
+                                    <th scope="col">Maxsulot rasmi</th>
+                                    <th scope="col">Maxsulot tarkibi</th>
+                                    <th scope="col">Maxsulot qollanilishi</th>
+                                    <th scope="col">Maxsulot foydalanishi</th>
+                                    <th scope="col">Batafsil</th>
+                                    <!-- <th scope="col">action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for object in objects %}
+                                <tr>
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td>{{object.nomi}}</td>
+                                    <td width="100px" ><img src="{{object.rasmi.url}}" alt="maxsulot rasm" ></td>
+                                    <td>{{object.tarkibi}}
+                                    </td>
+                                    <td>{{object.qollanilishi}}</td>
+                                    <td>
+                                        {{object.foydalanish_tartibi}}
+                                    </td>
+                                    <td>
+                                        <ul class="d-flex justify-content-center">
+                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Progress Table end -->
+</div>
+{% endblock content %}

@@ -11,6 +11,7 @@ urlpatterns = [
     path('mahsulotlar/delete/<int:pk>', DoriDelete.as_view()),
     
     path('yangiliklar/', YangiliklarList.as_view()),
+    path('yangiliklar/<slug:slug>', YangiliklarDetail.as_view()),
     path('yangiliklar/create', YangiliklarCreate.as_view()),
     path('yangiliklar/update/<int:pk>', YangiliklarUpdate.as_view()),
     path('yangiliklar/delete/<int:pk>', YangiliklarDelete.as_view()),
