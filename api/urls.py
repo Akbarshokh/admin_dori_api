@@ -17,13 +17,19 @@ urlpatterns = [
     # path('yangiliklar/delete/<int:pk>', YangiliklarDelete.as_view()),
     path('staff/', StaffList.as_view()),
     path('staff/<int:pk>', StaffDetail.as_view()),
-    path('order/', OrderList.as_view()),    
-    path('twitter/get/', FacebookListView.as_view()),
-    path('twitter/get/', TelefonListView.as_view()),
-    path('twitter/get/', EmailListView.as_view()),
-    path('twitter/get/', MapListView.as_view()),
+    
+    
+    path('order/', OrderList.as_view()),   
+    
+    path('text/', WebsiteTextList.as_view()),
+    path('text/<int:pk>', WebsiteTextList.as_view()),
+     
+    path('facebook/get/', FacebookListView.as_view()),
+    path('telefon/get/', TelefonListView.as_view()),
+    path('email/get/', EmailListView.as_view()),
+    path('map/get/', MapListView.as_view()),
     path('twitter/get/', TwitterListView.as_view()),
-    path('twitter/get/', TelegramListView.as_view()),
-    path('twitter/get/', InstagramListView.as_view()),
+    path('telegram/get/', TelegramListView.as_view()),
+    path('instagram/get/', InstagramListView.as_view()),
 ]
 

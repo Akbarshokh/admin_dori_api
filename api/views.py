@@ -48,6 +48,18 @@ class StaffDetail(generics.RetrieveAPIView):
     permission_class = [IsAdminUser]
 
 
+class WebsiteTextList(generics.ListAPIView):
+    queryset = WebsiteText.objects.all()
+    serializer_class = WebsiteTextSerializer
+    permission_classes = [IsAdminUser]
+
+
+class WebsiteTextDetail(generics.RetrieveAPIView):
+    queryset = WebsiteText.objects.all()
+    serializer_class = WebsiteTextSerializer
+    permission_classes = [IsAdminUser]
+
+
 class OrderList(generics.ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer

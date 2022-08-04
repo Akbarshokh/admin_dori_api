@@ -62,6 +62,16 @@ class Staff(models.Model):
         return self.first_name
 
 
+class WebsiteText(models.Model):
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+    rasmlar = models.ImageField(upload_to="website/", verbose_name="Website", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+    
+
+
 class Order(models.Model):
     first_name = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True)

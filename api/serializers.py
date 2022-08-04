@@ -22,6 +22,12 @@ class StaffSerializer(serializers.ModelSerializer):
                   'twitter', 'facebook', 'instagram', 'linkedin', 'avatar']
 
 
+class WebsiteTextSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WebsiteText
+        fields = ['title', 'body', 'rasmi']
+
+
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
