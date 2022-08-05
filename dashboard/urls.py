@@ -10,7 +10,7 @@ urlpatterns = [
     
     path('yangliklar/', yangilik_list, name='yangilik_list'),
     path('yangliklar/add', yangilik_add, name='yangilik_add'),
-    path('yangliklar/<int:pk>/', yanglik_detail, name='yanglik_detail'),
+    path('yangliklar/<int:pk>/', yanglik_detail, name='yangilik_detail'),
     
     path('linklar/', linklar, name='linklar_list'),
     # link add
@@ -23,6 +23,11 @@ urlpatterns = [
     path('instagram/add/', add_instagram, name='add_instagram_url'),
     
     path('staff/', staff, name='staff_list'),
+    path('staff/<int:pk>', staff_detail, name='staff_detail'),
     path('staff/add', staff_add, name='staff_add'),
+    
+    path('company/', text, name='company_text'),
+    path('company/add', text_add, name='company_text_add'),
+    path('company/<int:pk>', text, name='company_text_detail'),
     
 ]

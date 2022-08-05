@@ -3,7 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('account/', include('rest_framework.urls')),
-<<<<<<< HEAD
     
     path('mahsulotlar/', DoriList.as_view()),
     path('mahsulotlar/<slug:slug>', DoriDetail.as_view()),
@@ -32,6 +31,4 @@ urlpatterns = [
     path('twitter/get/', TwitterListView.as_view()),
     path('telegram/get/', TelegramListView.as_view()),
     path('instagram/get/', InstagramListView.as_view()),
-=======
->>>>>>> b21d6c6bcf529a8b7d5b40e47f28bce592b0b797
 ]

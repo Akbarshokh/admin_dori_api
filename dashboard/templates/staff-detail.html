@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 mt-12">
+        <div class="card card-bordered">
+            
+            <div class="card-body"> 
+                <img class="card-img-top img-fluid.width: 10%; " src="{{staff.avatar.url}}"  alt="image">               
+                <h5 class="title">{{staff.first_name}} {{staff.last_name}}</h5>                               
+                <p class="card-text"><b>{{staff.kasbi}}</b></p>
+                <p class="card-text">{{staff.about}}</p>                
+                <p class="card-text">{{staff.telefon}}</p>
+                
+                <!-- <a href="#" class="btn btn-primary">Go More....</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}
+

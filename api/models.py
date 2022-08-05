@@ -65,7 +65,7 @@ class Staff(models.Model):
 class WebsiteText(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
-    rasmlar = models.ImageField(upload_to="website/", verbose_name="Website", blank=True, null=True)
+    photos = models.ImageField(upload_to="website/", verbose_name="Website", blank=True, null=True)
 
     def __str__(self):
         return self.title

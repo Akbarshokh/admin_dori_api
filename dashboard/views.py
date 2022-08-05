@@ -50,7 +50,6 @@ def yangilik_list(request):
     context = {
         'news':news
     }
-
     return render(request, 'news-list.html', context)
 
 
@@ -59,7 +58,6 @@ def yanglik_detail(request, pk):
     context = {
         'news':news
     }
-
     return render(request, 'news-detail.html', context)
 
 
@@ -170,10 +168,19 @@ def add_instagram(request):
 
 
 def staff(request):
-    staffs = Staff.objects.all()
+    staff = Staff.objects.all()
     context = {
-        'staff':staffs
+        'staff':staff
     }
+    return render(request, 'staff-list.html', context)
+
+
+def staff_detail(request, pk):
+    staff = Staff.objects.get(pk=pk)
+    context = {
+        'staff':staff
+    }
+    return render(request, 'staff-detail.html', context)
 
 def staff_add(request):
     if request.method == 'POST':
@@ -203,3 +210,37 @@ def staff_add(request):
             avatar=avatar,
         )
     return render(request, 'staff-add.html')
+
+def text(request):
+    text = WebsiteText.objects.all()
+    context = {
+        'text':text
+    }
+    return render(request, 'company-list.html', context)
+
+
+def text_detail(request, pk):
+    text = WebsiteText.objects.get(pk=pk)
+    context = {
+        'text':text
+    }
+    return render(request, 'company-detail.html', context)
+
+
+def text_add(request):
+    if request.method == 'POST':        
+        title = request.POST['title']
+        body = request.POST['body']
+        photos = request.FILES['photos']
+        
+        Yangiliklar.objects.create(            
+            title = title,
+            body=body,
+            photos=photos,
+        )
+    return render(request, 'company-add.html')
+
+#delete view
+# def delete_note(request, pk=None):
+#     Notes.objects.get(id=pk).delete()
+#     return redirect("notes")

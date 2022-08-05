@@ -3,7 +3,7 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
 
-SERVICE_ACCOUNT_FILE = 'key.json'
+SERVICE_ACCOUNT_FILE = 'keys.json'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 creds = None

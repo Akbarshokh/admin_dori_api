@@ -42,7 +42,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="{% static 'images/icon/logo.png' %}" alt="logo"></a>
+                    <a href="{% url 'dashboard_url' %}"><img src="{% static 'images/icon/logo.png' %}" alt="logo"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -84,8 +84,8 @@
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Kompaniy haqida </span></a>
                                     <ul class="collapse">
-                                        <li><a href="index.html">Malumot qo`shish</a></li>
-                                        <li><a href="index3-horizontalmenu.html">Malumotlar ro`yxati</a></li>
+                                        <li><a href="{% url 'company_text_add' %}">Malumot qo`shish</a></li>
+                                        <li><a href="{% url 'company_text' %}">Malumotlar ro`yxati</a></li>
                                     </ul>
                                 </li>
                             </li>
