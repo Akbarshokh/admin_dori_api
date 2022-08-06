@@ -10,28 +10,13 @@
             <div class="col-12">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h4 class="header-title">Yangilik Qo'shish</h4>
+                        <h4 class="header-title">Matn Qo'shish</h4>
                         <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data" >
                             {% csrf_token %}
                             <div class="form-row">
-                                <div class="col-md-6 mb-6">
-                                    <label for="inputGroupFile01">Yangilik rasmi</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
-                                        <div class="custom-file">
-                                            <input type="file" class="form-control bg-light" id="inputGroupFile01" name="rasmi">
-                                            {% comment %} <label class="custom-file-label" for="inputGroupFile01">Choose file</label> {% endcomment %}
-                                        </div>
-                                    </div>
-                                     <!-- <input type="file" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required=""> -->
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-6">
-                                    <label for="validationCustom01">Yangilik Sarlavhasi </label>
+                                
+                                <div class="col-md-12 mb-6">
+                                    <label for="validationCustom01">Matn Sarlavhasi </label>
                                     <input type="text" class="form-control" id="validationCustom01" placeholder="Yangilik sarlavhasi" required="" name="title">
                                     <div class="valid-feedback">
                                         Looks good!
@@ -39,7 +24,7 @@
                                 </div>
                                 
                                 <div class="col-md-12 mb-3">
-                                    <label for="validationCustomUsername">Yangilik Matni</label>
+                                    <label for="validationCustomUsername">Matn</label>
                                     <div class="input-group">
                                         <textarea class="form-control" name="body" id="validationCustomUsername" cols="30" rows="10" required="" placeholder="Text"></textarea>
                                         <div class="invalid-feedback">
@@ -47,7 +32,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                                               
+                                                             
                             </div>
                             <button class="btn btn-primary" type="submit">Saqlash</button>
                         </form>

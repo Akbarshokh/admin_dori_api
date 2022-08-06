@@ -17,7 +17,7 @@
                                 <tr>
                                     <th scope="col">№</th>
                                     <th scope="col">Matn Sarlavhasi</th>
-                                    
+                                    {% comment %} <th scope="col">Rasmi</th> {% endcomment %}
                                     <th scope="col">Batafsil</th>
                                     <!-- <th scope="col">action</th> -->
                                 </tr>
@@ -26,11 +26,12 @@
                                 {% for matn in text %}
                                 <tr>
                                     <th scope="row">{{forloop.counter}}</th>
-                                    <td>{{matn.title}}</td>                                                                       
+                                    <td>{{matn.title}}</td>
+                                    {% comment %} <td width="100px" ><img src="{{matn.photos.url}}" alt="maxsulot rasm" ></td>                                     {% endcomment %}
                                     </td>                                    
                                     <td>
                                         <ul class="d-flex justify-content-center">
-                                            <li class="mr-3"><a href="{% url 'company_text_detail' matn.pk %}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                            <li class="mr-3"><a href="{% url 'yangilik_detail' new.pk %}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>

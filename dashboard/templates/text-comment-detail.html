@@ -10,11 +10,11 @@
     <div class="col-lg-12 col-md-12 mt-12">
         <div class="card card-bordered">
             
-            <div class="card-body">   
-                <img class="card-img-top img-fluid" src="{{news.rasmi.url}}" alt="image"> 
+            <div class="card-body">
+
                             
-                <h5 class="title">{{news.title}}</h5>                               
-                <p class="card-text">{{news.body}}</p>
+                <h5 class="title">{{text.title}}</h5>                               
+                <p class="card-text">{{text.body}}</p>
                 {% comment %} <a class="btn btn-primary mb-3" href="{% url 'yangilik_edit' news.pk %}" role="button">O'zgartirish</a>
                 <a class="btn btn-danger mb-3" href="#" role="button">O'chirish</a> {% endcomment %}
                 
@@ -27,22 +27,21 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">{{news.title}}</h5>
+                                <h5 class="modal-title">{{text.title}}</h5>
                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                             </div>
-                            <form action="{% url 'yangilik_edit' %}" method="post" enctype="multipart/form-data" >
+                            <form action="{% url 'text_comment_update' %}" method="post" enctype="multipart/form-data" >
                                 {% csrf_token %}
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="example-tel-input2" class="col-form-label">Title</label>
-                                        <input class="form-control" type="text" id="example-tel-input2" value="{{news.title}}" name='title' >
-                                        <input type="hidden" name="prod_id" value={{news.id}}>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{text.title}}" name='title' >
+                                        <input type="hidden" name="prod_id" value={{text.id}}>
                                         {% comment %} <input type="file" name="rasmi" ><a href="{{news.rasmi.url}}">{{news.rasm.url}}</a> {% endcomment %}
                                         <label for="example-tel-input2" class="col-form-label">Body</label>
-                                        <textarea class="form-control" type="text" id="example-tel-input2" name='body'>{{news.body}}</textarea>
+                                        <textarea class="form-control" type="text" id="example-tel-input2" name='body'>{{text.body}}</textarea>
 
-                                        <label for="example-tel-input2" class="col-form-label">Rasmi</label>
-                                        <input class="form-control" type="file" id="example-tel-input2"  name='rasmi'>
+                                        
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -54,22 +53,22 @@
                     </div>
                 </div>
 
-                <button class="btn btn-danger mb-3" data-toggle="modal" data-target="#{{forloop.counter}}2">Delete   </button> 
+                <button class="btn btn-danger mb-3" data-toggle="modal" data-target="#{{forloop.counter}}2">Delete</button> 
                                                         <!-- Modal -->
                 <div class="modal fade" id="{{forloop.counter}}2">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">{{news.title}}</h5>
+                                <h5 class="modal-title">{{text.title}}</h5>
                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <p> Siz maxsulotni o`chirmoqchimisiz?</p>
                             </div>
                             <div class="modal-footer">
-                                <form action="{% url 'yangilik_delete' %}" method="post">
+                                <form action="{% url 'text_comment_delete' %}" method="post">
                                     {% csrf_token %}
-                                    <input type="hidden" value={{news.id}} name='prod_id' >
+                                    <input type="hidden" value={{text.id}} name='prod_id' >
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Ortga Qaytish</button>
                                     <button type="submit" class="btn btn-primary">Saqlash</button>
                                 </form>

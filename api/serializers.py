@@ -28,9 +28,9 @@ class WebsiteTextSerializer(serializers.ModelSerializer):
         fields = ['title', 'body', 'rasmi']
 
 
-class OrderSerializer(serializers.ModelSerializer):
+class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Order
+        model = Feedback
         fields = ['first_name', 'email', 'phone', 'about']
 
 
@@ -75,3 +75,14 @@ class InstagramSerializer(serializers.ModelSerializer):
         model = InstagramModel
         fields = ['name']
         
+
+class CommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommentModel
+        fields = ['title', 'body']
+
+
+class CommentsImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommentImageModel
+        fields = ['image']

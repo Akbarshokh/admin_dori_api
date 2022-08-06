@@ -1,3 +1,6 @@
+from datetime import datetime
+from distutils.text_file import TextFile
+from turtle import title
 from django.db import models
 from django.forms import CharField
 from django.template.defaultfilters import slugify
@@ -65,19 +68,19 @@ class Staff(models.Model):
 class WebsiteText(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
-    photos = models.ImageField(upload_to="website/", verbose_name="Website", blank=True, null=True)
+    
 
     def __str__(self):
         return self.title
     
 
 
-class Order(models.Model):
+class Feedback(models.Model):
     first_name = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=255)
     about = models.TextField()
-
+    
     def __str__(self):
         return self.first_name
 
@@ -129,3 +132,20 @@ class InstagramModel(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class CommentModel(models.Model):
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.title
+    
+
+class CommentImageModel(models.Model):
+    
+    image = models.ImageField(upload_to= "comments")
+       
+    def __str__(self):
+        return self.title
+        

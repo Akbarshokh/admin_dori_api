@@ -50,7 +50,7 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
-                                <a href="{% url 'dashboard_url' %}" ><i class="ti-layout-sidebar-left"></i><span>boshqaruv paneli </span></a>
+                                <a href="{% url 'dashboard_url' %}" ><i class="ti-layout-sidebar-left"></i><span>Boshqaruv paneli </span></a>
 
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Mahsulotlar </span></a>
@@ -71,6 +71,8 @@
                                     <ul class="collapse">
                                         <li><a href="{% url 'link_add_url' %}">Link qo`shsih</a></li>
                                         <li><a href="{% url 'linklar_list' %}">Linklar ro`yxati</a></li>
+                                        <li><a href="">Location Qo'shih</a></li>
+                                        <li><a href="">Location</a></li>
                                     </ul>
                                 </li>
                                 
@@ -86,6 +88,17 @@
                                     <ul class="collapse">
                                         <li><a href="{% url 'company_text_add' %}">Malumot qo`shish</a></li>
                                         <li><a href="{% url 'company_text' %}">Malumotlar ro`yxati</a></li>
+                                        <li><a href="{% url 'text_comment' %}">Comment Text List</a></li>
+                                        <li><a href="{% url 'text_comment_add' %}">Comment Text Add</a></li>
+                                        <li><a href="{% url 'comment_image_list' %}">Comment Image List</a></li>
+                                        <li><a href="{% url 'comment_image_add' %}">Comment Image Add</a></li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Mijozlar Fikri</span></a>
+                                    <ul class="collapse">                                        
+                                        <li><a href="{% url 'feedback_list' %}">Ro'yhat</a></li>
                                     </ul>
                                 </li>
                             </li>
@@ -135,7 +148,7 @@
                             <img class="avatar user-thumb" src="{% static 'images/author/avatar.png' %}" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
                             </div>
                         </div>
                     </div>

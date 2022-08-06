@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 mt-12">
+        <div class="card card-bordered">            
+            <div class="card-body">                
+                <h5 class="title">{{feedback.first_name}}</h5>
+                <p class="card-text"><b>Email</b></p>                
+                <p class="card-text">{{feedback.email}}</p>
+                <p class="card-text"><b>Telefon Raqai</b></p>                
+                <p class="card-text">{{feedback.phone}}</p>
+                <p class="card-text"><b>Xabar</b></p>
+                <p class="card-text">{{feedback.about}}</p>
+                <!-- <a href="#" class="btn btn-primary">Go More....</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

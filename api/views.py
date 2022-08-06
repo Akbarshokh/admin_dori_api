@@ -10,6 +10,8 @@ from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import BasePermission, IsAdminUser
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from django.http import JsonResponse
 # from .gsheets import *
 
 class DoriList(generics.ListAPIView):
@@ -60,11 +62,41 @@ class WebsiteTextDetail(generics.RetrieveAPIView):
     permission_classes = [IsAdminUser]
 
 
-class OrderList(generics.ListAPIView):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    permission_classes = [IsAdminUser]
 
+# @api_view(['GET'])
+# def comment(request):
+#     # comment = CommentModel.objects.last()
+#     images = CommentImageModel.objects.filter(comment=comment)
+#     # print(comment)
+#     # print(images)
+#     # comment_serializer = CommentsSerializer(comment, many=False)
+#     comments_image_serializer = CommentsImageSerializer(images, many=True)
+#     # print(comment)
+#     # print(images)
+#     context = {
+#         # 'comment': comment_serializer,
+#         'images': comments_image_serializer, 
+             
+#     }   
+    
+#     return Response(context)
+
+class CommentsListView(generics.ListCreateAPIView):
+    queryset = CommentModel.objects.all()
+    serializer_class = CommentsSerializer
+    permission_classes = [IsAdminUser]
+    
+class CommentsImageListView(generics.ListCreateAPIView):
+    queryset = CommentImageModel.objects.all()
+    serializer_class = CommentsImageSerializer
+    permission_classes = [IsAdminUser] 
+       
+    
+class FeedBackList(generics.CreateAPIView):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+    permission_classes = [IsAdminUser]
+  
 
 class FacebookListView(APIView):
     def get(self, request):
@@ -113,3 +145,7 @@ class InstagramListView(APIView):
         snippets = InstagramModel.objects.last()
         serializer = InstagramSerializer(snippets)
         return Response(serializer.data)
+
+
+    
+        

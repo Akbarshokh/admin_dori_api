@@ -19,10 +19,14 @@ urlpatterns = [
     path('staff/<int:pk>', StaffDetail.as_view()),
     
     
-    path('order/', OrderList.as_view()),   
+    path('feedback/', FeedBackList.as_view()),   
     
     path('text/', WebsiteTextList.as_view()),
     path('text/<int:pk>', WebsiteTextList.as_view()),
+    
+    path('comments/', CommentsListView.as_view() , name="comment" ),
+    path('comments/', CommentsImageListView.as_view() , name="comment" ),
+    
      
     path('facebook/get/', FacebookListView.as_view()),
     path('telefon/get/', TelefonListView.as_view()),
