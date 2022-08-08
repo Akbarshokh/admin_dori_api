@@ -22,10 +22,13 @@ urlpatterns = [
     path('feedback/', FeedBackList.as_view()),   
     
     path('text/', WebsiteTextList.as_view()),
-    path('text/<int:pk>', WebsiteTextList.as_view()),
+    path('text/<int:pk>', WebsiteTextDetail.as_view()),
     
-    path('comments/', CommentsListView.as_view() , name="comment" ),
-    path('comments/', CommentsImageListView.as_view() , name="comment" ),
+    path('comments/text/', CommentsListView.as_view() , name="comment" ),
+    path('comments/text/<int:pk>', CommentsDetailView.as_view()),
+    
+    path('comments/image/', CommentsImageListView.as_view() ),
+    path('comments/image/<int:pk>', CommentsImageDetailView.as_view()),
     
      
     path('facebook/get/', FacebookListView.as_view()),

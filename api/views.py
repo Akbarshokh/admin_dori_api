@@ -85,12 +85,21 @@ class CommentsListView(generics.ListCreateAPIView):
     queryset = CommentModel.objects.all()
     serializer_class = CommentsSerializer
     permission_classes = [IsAdminUser]
+
+class CommentsDetailView(generics.RetrieveAPIView):
+    queryset = CommentModel.objects.all()
+    serializer_class = CommentsSerializer
+    permission_classes = [IsAdminUser]
     
 class CommentsImageListView(generics.ListCreateAPIView):
     queryset = CommentImageModel.objects.all()
     serializer_class = CommentsImageSerializer
     permission_classes = [IsAdminUser] 
        
+class CommentsImageDetailView(generics.RetrieveAPIView):
+    queryset = CommentImageModel.objects.all()
+    serializer_class = CommentsSerializer
+    permission_classes = [IsAdminUser]
     
 class FeedBackList(generics.CreateAPIView):
     queryset = Feedback.objects.all()

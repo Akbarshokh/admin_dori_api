@@ -18,14 +18,14 @@ class YangiliklarSerializer(serializers.ModelSerializer):
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Staff
-        fields = ['first_name', 'last_name', 'kasbi', 'about', 'email', 
-                  'twitter', 'facebook', 'instagram', 'linkedin', 'avatar']
+        fields = ['first_name', 'last_name', 'kasbi', 'about', 'telefon', 'email', 
+                  'twitter', 'facebook', 'instagram', 'telegram', 'avatar']
 
 
 class WebsiteTextSerializer(serializers.ModelSerializer):
     class Meta:
         model = WebsiteText
-        fields = ['title', 'body', 'rasmi']
+        fields = ['title', 'body']
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
@@ -37,7 +37,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
 class MapSerializer(serializers.ModelSerializer):
     class Meta:
         model = Map
-        fields = ['map']        
+        fields = ['name']        
     
         
 class EmailSerializer(serializers.ModelSerializer):
