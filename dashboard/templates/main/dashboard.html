@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-content-inner">
+    <div class="card-area">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5  ">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card1.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Mahsulotlar</h5>
+                        <p class="card-text"> Komapniya mahsulotlari</p>
+                        <a href="{% url 'mahsulot_list' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card2.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Yangiliklar</h5>
+                        <p class="card-text"> Kompaniya yangiliklari </p>
+                        <a href="{% url 'yangilik_list' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card3.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Linklar</h5>
+                        <p class="card-text">Ijtimoiy tarmoqlarga linklar</p>
+                        <a href="{% url 'linklar_list' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card4.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Xodimlar</h5>
+                        <p class="card-text">Xodimlar haqida ma'lumot</p>
+                        <a href="{% url 'staff_list' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card5.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Komapaniya Haqida</h5>
+                        <p class="card-text">Website matni va rasmlari</p>
+                        <a href="{% url 'company_text' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="card card-bordered">
+                    <img class="card-img-top img-fluid" src="{% static 'images/card/card6.png'%}" alt="image">
+                    <div class="card-body">
+                        <h5 class="title">Mijozlar Fikri</h5>
+                        <p class="card-text">Mijozlardan qoldirilgan fikr va takliflar</p>
+                        <a href="{% url 'feedback_list' %}" class="btn btn-primary">Batasfil</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

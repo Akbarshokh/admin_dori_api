@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 mt-12">
+        <div class="card card-bordered">
+            
+            <div class="card-body"> 
+                <img class="card-img-top img-fluid.width: 10%; " src="{{staff.avatar.url}}"  alt="image">               
+                <h5 class="title">{{staff.first_name}} {{staff.last_name}}</h5>                               
+                <p class="card-text"><b>Kasbi</b></p>
+                <p class="card-text"><{{staff.kasbi}}</p>
+                <p class="card-text"><b>About</b></p>
+                <p class="card-text">{{staff.about}}</p> 
+                <p class="card-text"><b>Telefon</b></p>
+                {% if telefon is not None %}                    
+                    <p class="card-text">{{staff.telefon}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+                
+                <p class="card-text"><b>Telegram</b></p>
+                {% if telegram is not None %}
+                    <p class="card-text">{{staff.telegram}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+
+                <p class="card-text"><b>Email</b></p>
+                {% if email is not None %}
+                    <p class="card-text">{{staff.email}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+
+                <p class="card-text"><b>Twitter</b></p>
+                {% if twitter is not None %}
+                    <p class="card-text">{{staff.twitter}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+
+                <p class="card-text"><b>Facebook</b></p>
+                {% if facebook is not None %}
+                    <p class="card-text">{{staff.facebook}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+
+                <p class="card-text"><b>Instagram</b></p>
+                {% if instagram is not None %}
+                    <p class="card-text">{{staff.instagram}}</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
+                
+                <button class="btn btn-primary mb-3"  data-toggle="modal" data-target="#{{forloop.counter}}1">Edit</button>
+                                                        <!-- + -->
+                <div class="modal fade" id="{{forloop.counter}}1">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{staff.first_name}} {{staff.last_name}} </h5>
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <form action="{% url 'staff_edit' %}" method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="example-tel-input2" class="col-form-label">Ismi</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.first_name}}" name='first_name' >
+                                        <input type="hidden" name="prod_id" value={{staff.id}}>                                        
+                                        
+                                        <label for="example-tel-input2" class="col-form-label">Sharifi</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.last_name}}" name='last_name' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Kasbi</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.kasbi}}" name='kasbi' >                                       
+
+                                        <label for="example-tel-input2" class="col-form-label">About</label>
+                                        <textarea class="form-control" type="text" id="example-tel-input2" name='about'>{{staff.about}}</textarea>
+
+                                        <label for="example-tel-input2" class="col-form-label">Telefon</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.telefon}}" name='telefon' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Telegram</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.telegram}}" name='telegram' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Email</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.email}}" name='email' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Twitter</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.twitter}}" name='twitter' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Facebook</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.facebook}}" name='facebook' >
+
+                                        <label for="example-tel-input2" class="col-form-label">Instagram</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{staff.instagram}}" name='instagram' >                                        
+
+                                        <label for="example-tel-input2" class="col-form-label">Rasmi</label>
+                                        <input class="form-control" type="file" id="example-tel-input2"  name='avatar'>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ortga Qaytish</button>
+                                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-danger mb-3" data-toggle="modal" data-target="#{{forloop.counter}}2">Delete</button> 
+                                                        <!-- Modal -->
+                <div class="modal fade" id="{{forloop.counter}}2">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{staff.first_name}} {{staff.last_name}} </h5>
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p> Siz maxsulotni o`chirmoqchimisiz?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="{% url 'staff_delete' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" value={{staff.id}} name='prod_id' >
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ortga Qaytish</button>
+                                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <!-- <a href="#" class="btn btn-primary">Go More....</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}
+

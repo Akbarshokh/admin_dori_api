@@ -126,6 +126,13 @@ class MapListView(APIView):
         return Response(serializer.data)
 
 
+class MapDetailView(generics.RetrieveAPIView):
+    queryset = Map.objects.all()
+    serializer_class = MapSerializer
+    permission_classes = [IsAdminUser]
+    
+    
+
 class TwitterListView(APIView):
     def get(self, request):
         snippets = TwitterModel.objects.last()

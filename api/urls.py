@@ -31,8 +31,10 @@ urlpatterns = [
     path('facebook/get/', FacebookListView.as_view()),
     path('telefon/get/', TelefonListView.as_view()),
     path('email/get/', EmailListView.as_view()),
-    path('map/get/', MapListView.as_view()),
     path('twitter/get/', TwitterListView.as_view()),
     path('telegram/get/', TelegramListView.as_view()),
     path('instagram/get/', InstagramListView.as_view()),
+    
+    path('map/get/', MapListView.as_view()),
+    path('map/<int:pk>', MapDetailView.as_view()),
 ]

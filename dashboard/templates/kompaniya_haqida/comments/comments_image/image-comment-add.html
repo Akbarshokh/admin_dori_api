@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+            <!-- Server side start -->
+            <div class="col-12">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h4 class="header-title">Rasm Qo'shish</h4>
+                        <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="form-row">
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputGroupFile01">Maxsulot rasmi</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Yuklash</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="form-control bg-light"  id="inputGroupFile01" name="image">
+                                            {% comment %} <label class="custom-label" for="inputGroupFile01">Choose file</label> {% endcomment %}
+                                        </div>
+                                    </div>
+                                        {% comment %} <input type="file" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required="">  {% endcomment %}
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                
+                                                               
+                            </div>
+                            <button class="btn btn-primary" type="submit">Saqlash</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Server side end -->
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

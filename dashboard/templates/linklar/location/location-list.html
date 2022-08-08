@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <!-- Progress Table start -->
+    <div class="col-12 mt-5">
+        <div class="card">
+            <div class="card-body">                
+                <h4 class="header-title"></h4>                  
+                <div class="single-table">                      
+                    <div class="table-responsive">
+                        <table class="table table-hover progress-table text-center">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th scope="col">Map</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if name is not None %}                                    
+                                    <th><a href="{{name}}">{{name}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="btn btn-success mb-6"  data-toggle="modal" data-target="#{{forloop.counter}}1">Yangi Qo'shish</button>
+                <div class="modal fade" id="{{forloop.counter}}1">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{object.nomi}}</h5>
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <form action="{% url 'add_map' %}" method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="example-tel-input2" class="col-form-label">Map</label>
+                                        <input class="form-control" type="text" id="example-tel-input2" value="{{name.name}}" name='name' >
+                                        {% comment %} <input type="hidden" name="prod_id" value={{name.id}}>                                         {% endcomment %}
+    
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ortga Qaytish</button>
+                                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <!-- Progress Table end -->
+</div>
+{% endblock content %}
+

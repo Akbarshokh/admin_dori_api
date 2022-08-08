@@ -68,12 +68,10 @@ class Staff(models.Model):
 class WebsiteText(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
-    
 
     def __str__(self):
         return self.title
     
-
 
 class Feedback(models.Model):
     first_name = models.CharField(max_length=255)
@@ -86,11 +84,11 @@ class Feedback(models.Model):
 
 
 class Map(models.Model):
-    map = CharField(max_length=255)
+    name = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.map
-   
+        return self.name
+    
     
 class EmailModel(models.Model):
     name = models.URLField()
@@ -143,9 +141,8 @@ class CommentModel(models.Model):
     
 
 class CommentImageModel(models.Model):
-    
-    image = models.ImageField(upload_to= "comments")
+    image = models.ImageField(upload_to= "comments", verbose_name="Comments Image", blank=True)
        
     def __str__(self):
-        return self.title
+        return self.image
         
