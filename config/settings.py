@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure--!d)p+y-g$tehgb+y*eklq+opbuso2l(9q_tpf7o*xvo4bo)w+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['apexfarma.uz', 'https://www.apexfarma.uz/', 'www.apexfarma.uz']
 
 
 # Application definition
