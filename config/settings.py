@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from .config import DB_NAME, DB_PASSWORD, DB_USER
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,8 @@ SECRET_KEY = 'django-insecure--!d)p+y-g$tehgb+y*eklq+opbuso2l(9q_tpf7o*xvo4bo)w+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://www.api.apexfarma.uz/', 'api.apexfarma.uz', 'www.api.apexfarma.uz']
+ALLOWED_HOSTS = ['https://www.api.apexfarma.uz/',
+                 'api.apexfarma.uz', 'www.api.apexfarma.uz']
 
 
 # Application definition
@@ -38,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'api',
     'dashboard',
-    
+
     'gsheets',
     'drf_yasg',
     'rest_framework',
@@ -52,11 +54,11 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated', 
+    #     'rest_framework.permissions.IsAuthenticated',
     #     'rest_framework.authentication.BasicAuthentication',
     #     'rest_framework.authentication.SessionAuthentication',
     # ]
-    
+
 }
 
 MIDDLEWARE = [
@@ -91,7 +93,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # DATABASES = {
@@ -104,10 +105,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'apexfarm_admin_dori_api',
-        'USER': 'apexfarm_admin_dori_api',
-        'PASSWORD': 'haha did u really think i would leave my password here?',
-        'HOST': '127.0.0.1', 
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -151,16 +152,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # # STATICFILES_DIRS = (
 # #     os.path.join(BASE_DIR, 'static'),
