@@ -1,47 +1,36 @@
-import django
-from django.shortcuts import render
+
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
-from rest_framework import filters
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import BasePermission, IsAdminUser
+from rest_framework.permissions import  IsAdminUser
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from django.http import JsonResponse
-# from .gsheets import *
+
 
 class DoriList(generics.ListAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
-    permission_classes = [IsAdminUser]
     
     
 class DoriDetail(generics.RetrieveAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
-    permission_classes = [IsAdminUser]
   
 
 class YangiliklarList(generics.ListAPIView):
     queryset = Yangiliklar.objects.all()  
     serializer_class = YangiliklarSerializer
-    permission_classes = [IsAdminUser]
 
 
 class YangiliklarDetail(generics.RetrieveAPIView):
     queryset = Yangiliklar.objects.all()
     serializer_class = YangiliklarSerializer
-    permission_classes = [IsAdminUser]
    
 
 class StaffList(generics.ListAPIView):
     queryset = Staff.objects.all()
     serializer_class = StaffSerializer
-    permission_classes = [IsAdminUser]
     
     
 class StaffDetail(generics.RetrieveAPIView):
@@ -53,58 +42,32 @@ class StaffDetail(generics.RetrieveAPIView):
 class WebsiteTextList(generics.ListAPIView):
     queryset = WebsiteText.objects.all()
     serializer_class = WebsiteTextSerializer
-    permission_classes = [IsAdminUser]
 
 
 class WebsiteTextDetail(generics.RetrieveAPIView):
     queryset = WebsiteText.objects.all()
     serializer_class = WebsiteTextSerializer
-    permission_classes = [IsAdminUser]
 
-
-
-# @api_view(['GET'])
-# def comment(request):
-#     # comment = CommentModel.objects.last()
-#     images = CommentImageModel.objects.filter(comment=comment)
-#     # print(comment)
-#     # print(images)
-#     # comment_serializer = CommentsSerializer(comment, many=False)
-#     comments_image_serializer = CommentsImageSerializer(images, many=True)
-#     # print(comment)
-#     # print(images)
-#     context = {
-#         # 'comment': comment_serializer,
-#         'images': comments_image_serializer, 
-             
-#     }   
-    
-#     return Response(context)
 
 class CommentsListView(generics.ListCreateAPIView):
     queryset = CommentModel.objects.all()
     serializer_class = CommentsSerializer
-    permission_classes = [IsAdminUser]
 
 class CommentsDetailView(generics.RetrieveAPIView):
     queryset = CommentModel.objects.all()
     serializer_class = CommentsSerializer
-    permission_classes = [IsAdminUser]
     
 class CommentsImageListView(generics.ListCreateAPIView):
     queryset = CommentImageModel.objects.all()
-    serializer_class = CommentsImageSerializer
-    permission_classes = [IsAdminUser] 
+    serializer_class = CommentsImageSerializer 
        
 class CommentsImageDetailView(generics.RetrieveAPIView):
     queryset = CommentImageModel.objects.all()
     serializer_class = CommentsSerializer
-    permission_classes = [IsAdminUser]
     
 class FeedBackList(generics.CreateAPIView):
     queryset = Feedback.objects.all()
     serializer_class = FeedbackSerializer
-    permission_classes = [IsAdminUser]
   
 
 class FacebookListView(APIView):
@@ -138,7 +101,6 @@ class MapListView(APIView):
 class MapDetailView(generics.RetrieveAPIView):
     queryset = Map.objects.all()
     serializer_class = MapSerializer
-    permission_classes = [IsAdminUser]
     
     
 

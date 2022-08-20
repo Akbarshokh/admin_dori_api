@@ -1,7 +1,4 @@
-from datetime import datetime
-from distutils.text_file import TextFile
 from django.db import models
-from django.forms import CharField
 from django.template.defaultfilters import slugify
 
 #linklar - email, pnone, links
