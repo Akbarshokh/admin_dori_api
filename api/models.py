@@ -1,6 +1,5 @@
 from datetime import datetime
 from distutils.text_file import TextFile
-from turtle import title
 from django.db import models
 from django.forms import CharField
 from django.template.defaultfilters import slugify
@@ -145,4 +144,3 @@ class CommentImageModel(models.Model):
        
     def __str__(self):
         return self.image
-        

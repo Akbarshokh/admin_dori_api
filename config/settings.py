@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure--!d)p+y-g$tehgb+y*eklq+opbuso2l(9q_tpf7o*xvo4bo)w+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['apexfarma.uz', 'https://www.apexfarma.uz/', 'www.apexfarma.uz']
+ALLOWED_HOSTS = ['https://www.api.apexfarma.uz/', 'api.apexfarma.uz', 'www.api.apexfarma.uz']
 
 
 # Application definition
@@ -105,9 +105,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'admin_page', 
-        'USER': 'postgres', 
-        'PASSWORD': 'postgres',
+        'NAME': 'apexfarm_admin_dori_api',
+        'USER': 'apexfarm_admin_dori_api',
+        'PASSWORD': 'haha did u really think i would leave my password here?',
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }
@@ -171,4 +171,3 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
