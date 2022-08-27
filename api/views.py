@@ -5,97 +5,98 @@ from .serializers import *
 from rest_framework import generics
 from rest_framework.permissions import  IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 
 
 class DoriList(generics.ListAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
     
 class DoriDetail(generics.RetrieveAPIView):
     queryset = Dori.objects.all()
     serializer_class = DoriSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
   
 
 class YangiliklarList(generics.ListAPIView):
     queryset = Yangiliklar.objects.all()  
     serializer_class = YangiliklarSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
 
 class YangiliklarDetail(generics.RetrieveAPIView):
     queryset = Yangiliklar.objects.all()
     serializer_class = YangiliklarSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
    
 
 class StaffList(generics.ListAPIView):
     queryset = Staff.objects.all()
     serializer_class = StaffSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
     
 class StaffDetail(generics.RetrieveAPIView):
     queryset = Staff.objects.all()
     serializer_class = StaffSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
 
 class WebsiteTextList(generics.ListAPIView):
     queryset = WebsiteText.objects.all()
     serializer_class = WebsiteTextSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
 
 class WebsiteTextDetail(generics.RetrieveAPIView):
     queryset = WebsiteText.objects.all()
     serializer_class = WebsiteTextSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
 
 class CommentsListView(generics.ListCreateAPIView):
     queryset = CommentModel.objects.all()
     serializer_class = CommentsSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
 
 class CommentsDetailView(generics.RetrieveAPIView):
     queryset = CommentModel.objects.all()
     serializer_class = CommentsSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
     
 class CommentsImageListView(generics.ListCreateAPIView):
     queryset = CommentImageModel.objects.all()
     serializer_class = CommentsImageSerializer 
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
        
 class CommentsImageDetailView(generics.RetrieveAPIView):
     queryset = CommentImageModel.objects.all()
     serializer_class = CommentsSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
     
 class FeedBackList(generics.CreateAPIView):
     queryset = Feedback.objects.all()
     serializer_class = FeedbackSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
   
 
@@ -130,7 +131,7 @@ class MapListView(APIView):
 class MapDetailView(generics.RetrieveAPIView):
     queryset = Map.objects.all()
     serializer_class = MapSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]    
     
 

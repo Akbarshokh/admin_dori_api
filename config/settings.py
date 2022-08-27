@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "rest_framework.authtoken",
+    'rest_authtoken',
 ]
 
 REST_FRAMEWORK = {
@@ -65,8 +66,9 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend"
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.BasicAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
+        'rest_authtoken.auth.AuthTokenAuthentication',
+        # "rest_framework.authentication.BasicAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
