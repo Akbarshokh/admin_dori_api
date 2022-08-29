@@ -32,10 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "https://www.api.apexfarma.uz/",
     "api.apexfarma.uz",
-    "www.api.apexfarma.uz",
-    "https://www.apexfarma.uz/",
-    "apexfarma.uz",
-    "www.apexfarma.uz",
+    "www.api.apexfarma.uz",    
     '0.0.0.0', 
     'localhost', 
     '127.0.0.1',

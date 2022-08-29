@@ -32,6 +32,7 @@ urlpatterns = [
     path('facebook/add/', add_facebook, name='add_facebook_url'),
     path('telegram/add/', add_telegram, name='add_telegram_url'),
     path('instagram/add/', add_instagram, name='add_instagram_url'),
+    path('youtube/add/', add_youtube, name='add_youtube_url'),
     
     ############### Map ###############
     path('map/', map_list, name="map_list"),

@@ -19,6 +19,7 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Twitter</th>
                                     <th scope="col">Facebook</th>
+                                    <th scope="col">Youtube</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,11 @@
                                 {% endif %}
                                 {% if facebook is not None %}
                                     <th><a href="{{facebook}}">{{facebook}}</a></th>
+                                {% else %}
+                                    <th>-</th>
+                                {% endif %}
+                                {% if youtube is not None %}
+                                    <th><a href="{{youtube}}">{{youtube}}</a></th>
                                 {% else %}
                                     <th>-</th>
                                 {% endif %}

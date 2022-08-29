@@ -171,27 +171,6 @@ def add_map(request):
     return redirect('map_list')
 
 
-# @login_required(login_url='login_url')
-# def map_update(request):    
-#     name = request.POST['name']
-#     id = request.POST['prod_id']
-
-#     update_object = Map.objects.get(id=id)
-#     update_object.name = name
-        
-#     update_object.save()
-    
-#     return redirect('map_detail', id)
-        
-        
-# @login_required(login_url='login_url')        
-# def map_delete(request):
-#     if request.method == 'POST':
-#         prod_id =  request.POST['prod_id']
-#         delete_product = Map.objects.get(id=prod_id)
-#         delete_product.delete()
-#         return redirect('add_map')
-
 ############################## Staff ################################################
 @login_required(login_url='login_url')
 def staff(request):
@@ -492,13 +471,15 @@ def linklar(request):
     phone = TelefonModel.objects.last()
     twitter = TwitterModel.objects.last()
     facebook = FacebookModel.objects.last()
+    youtube = YoutubeModel.objects.last()
     context = {
         'telegram':telegram,
         'instagram':instagram,
         'email':email,
         'phone':phone,
         'twitter':twitter,
-        'facebook':facebook
+        'facebook':facebook,
+        'youtube':youtube
     }
 
     return render(request, 'linklar/link-list.html', context)
@@ -507,6 +488,17 @@ def linklar(request):
 @login_required(login_url='login_url')
 def add_link(request):
     return render(request, 'linklar/link-add.html')
+
+
+@login_required(login_url='login_url')
+def add_youtube(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+
+        YoutubeModel.objects.create(
+            name=name
+        )
+    return redirect('linklar_list')
 
 
 @login_required(login_url='login_url')

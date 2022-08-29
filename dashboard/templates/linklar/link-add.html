@@ -46,13 +46,13 @@
                                     </div>
                                 </div>                                                               
                             </div> <br>
-                            <button class="btn btn-flat btn-info mb-3" type="submit">Saqlash</button>
+                            <button class="btn btn-primary" type="submit">Saqlash</button>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Server side end -->
-        </div>
+    </div>
     <div class="col-4">
             <!-- Server side start -->
             <div class="col-12">
@@ -70,13 +70,13 @@
                                     </div>
                                 </div>                                                               
                             </div> <br>
-                            <button class="btn btn-flat btn-info mb-3" type="submit">Saqlash</button>
+                            <button class="btn btn-primary" type="submit">Saqlash</button>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Server side end -->
-        </div>
+    </div>
     <div class="col-4">
             <!-- Server side start -->
             <div class="col-12">
@@ -94,13 +94,13 @@
                                     </div>
                                 </div>                                                               
                             </div> <br>
-                            <button class="btn btn-flat btn-info mb-3" type="submit">Saqlash</button>
+                            <button class="btn btn-primary" type="submit">Saqlash</button>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Server side end -->
-        </div>
+    </div>
     <div class="col-4">
             <!-- Server side start -->
             <div class="col-12">
@@ -118,13 +118,13 @@
                                     </div>
                                 </div>                                                               
                             </div> <br>
-                            <button class="btn btn-flat btn-info mb-3" type="submit">Saqlash</button>
+                            <button class="btn btn-primary" type="submit">Saqlash</button>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Server side end -->
-        </div>
+    </div>
     <div class="col-4">
             <!-- Server side start -->
             <div class="col-12">
@@ -150,6 +150,30 @@
             <!-- Server side end -->
         </div>
     </div>
+    <div class="col-4">
+        <!-- Server side start -->
+        <div class="col-12">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h4 class="header-title">Youtube link qo`shish</h4>
+                    <form class="needs-validation" novalidate="" method="post" action="{% url 'add_youtube_url' %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-12 mb-6">
+                                <label for="validationCustom02">Link kiriting</label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="link..." required="" name="name">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>                                                               
+                        </div> <br>
+                        <button class="btn btn-primary" type="submit">Saqlash</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Server side end -->
+</div>
 </div>
 {% endblock content %}
 
