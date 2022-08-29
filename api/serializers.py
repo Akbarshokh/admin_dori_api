@@ -1,4 +1,3 @@
-from dataclasses import field
 from rest_framework import serializers
 from .models import *
 
@@ -45,6 +44,12 @@ class EmailSerializer(serializers.ModelSerializer):
         model = EmailModel
         fields = ['name']
 
+
+class YoutubeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = YoutubeModel
+        fields = ['name']
+        
 
 class TwitterSerializer(serializers.ModelSerializer):
     class Meta:

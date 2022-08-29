@@ -30,7 +30,7 @@ urlpatterns = [
     path('comments/image/', CommentsImageListView.as_view() ),
     path('comments/image/<int:pk>', CommentsImageDetailView.as_view()),
     
-     
+    path('youtube/get/', YoutubeListView.as_view()), 
     path('facebook/get/', FacebookListView.as_view()),
     path('telefon/get/', TelefonListView.as_view()),
     path('email/get/', EmailListView.as_view()),

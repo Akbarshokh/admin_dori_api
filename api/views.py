@@ -114,12 +114,18 @@ class TelefonListView(APIView):
         return Response(serializer.data)
 
 
+class YoutubeListView(APIView):
+    def get(self, request):
+        snippets = YoutubeListView.objects.last()
+        serializer = YoutubeSerializer(snippets)
+        return Response(serializer.data)
+
+
 class EmailListView(APIView):
     def get(self, request):
         snippets = EmailModel.objects.last()
         serializer = EmailSerializer(snippets)
         return Response(serializer.data)
-
 
 class MapListView(APIView):
     def get(self, request):
