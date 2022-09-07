@@ -2,16 +2,24 @@ from rest_framework import serializers
 from .models import *
 
 
-class DoriSerializer(serializers.ModelSerializer):
+class DoriSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Dori
         fields = ['id', 'slug', 'nomi', 'rasmi', 'tarkibi', 'qollanilishi', 'foydalanish_tartibi', ]
+        lookup_field = 'slug'
+        extra_kwargs = {
+            'url': {'lookup_field': 'slug'},            
+        }
         
 
-class YangiliklarSerializer(serializers.ModelSerializer):
+class YangiliklarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Yangiliklar
         fields = ['rasmi', 'title', 'body',]
+        lookup_field = 'slug'
+        extra_kwargs = {
+            'url': {'lookup_field': 'slug'},            
+        }
 
 
 class StaffSerializer(serializers.ModelSerializer):
