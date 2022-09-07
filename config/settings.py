@@ -29,14 +29,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "https://www.api.apexfarma.uz/",
-    "api.apexfarma.uz",
-    "www.api.apexfarma.uz",    
-    '0.0.0.0', 
-    'localhost', 
-    '127.0.0.1',
-]
+ALLOWED_HOSTS=['*']
 
 
 # Application definition
@@ -79,13 +72,13 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -177,10 +170,11 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://apexfarma.uz",
-    "https://api.apexfarma.uz",
-    "http://localhost:8080",
-    "http://127.0.0.1:8000"
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://apexfarma.uz",
+#     "https://api.apexfarma.uz",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8000"
+# ]
