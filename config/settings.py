@@ -29,8 +29,14 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS=['*']
-
+ALLOWED_HOSTS = [
+    "https://www.api.apexfarma.uz/",
+    "api.apexfarma.uz",
+    "www.api.apexfarma.uz",    
+    '0.0.0.0', 
+    'localhost', 
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -169,12 +175,12 @@ STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://apexfarma.uz",
-#     "https://api.apexfarma.uz",
-#     "http://localhost:8080",
-#     "http://127.0.0.1:8000"
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://apexfarma.uz",
+    "https://api.apexfarma.uz",
+    "http://localhost:8080",
+    "http://127.0.0.1:8000"
+]
