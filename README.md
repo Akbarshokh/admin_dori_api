@@ -1,3 +1,3 @@
 # admin_dori_api
-This API eas created to manage the pharmacy store web-site.
+This API was created to manage the pharmacy store web-site.
 eee
